@@ -10,7 +10,7 @@ export function ValueCard(props: Props) {
       style={{ flexGrow: 1 }}
     >
       <h3 className='undp-typography bold'>{number}</h3>
-      <p className='undp-typohraphy'>{title}</p>
+      <p className='undp-typography'>{title}</p>
     </div>
   );
 }
