@@ -8,9 +8,12 @@ import { DotPlot } from './Components/DotPlot';
 function App() {
   const [data, setData] = useState<CountryGroupDataType | undefined>(undefined);
   useEffect(() => {
-    json('./data.json', (err: any, d: CountryGroupDataType) => {
-      setData(d);
-    });
+    json(
+      'https://raw.githubusercontent.com/UNDP-Data/dv-signature_solutions_aggreated_timeseries-viz/master/public/data.json',
+      (err: any, d: CountryGroupDataType) => {
+        setData(d);
+      },
+    );
   }, []);
   return (
     <div
