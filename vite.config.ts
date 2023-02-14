@@ -11,6 +11,11 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   server: {
-    cors: false,
+    cors: {
+      origin: '*',
+      methods: ['GET'],
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+    },
   },
 });
