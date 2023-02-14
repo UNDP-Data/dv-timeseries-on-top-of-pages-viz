@@ -118,9 +118,17 @@ export function LineChart(props: Props) {
         flexDirection: 'column',
       }}
     >
-      <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
+      <h6
+        className='undp-typography bold margin-bottom-03'
+        style={{ color: 'var(--white)' }}
+      >
+        {graphTitle}
+      </h6>
       <div>
-        <h2 className='undp-typography bold margin-bottom-00'>
+        <h2
+          className='undp-typography bold margin-bottom-00'
+          style={{ color: 'var(--white)' }}
+        >
           {mouseOverData.value}
           {suffix || ''}{' '}
           <span style={{ opacity: '0.25' }}>({mouseOverData.year})</span>

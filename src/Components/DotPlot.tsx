@@ -23,9 +23,17 @@ export function DotPlot(props: Props) {
         flexDirection: 'column',
       }}
     >
-      <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
+      <h6
+        className='undp-typography bold margin-bottom-03'
+        style={{ color: 'var(--white)' }}
+      >
+        {graphTitle}
+      </h6>
       <div>
-        <h2 className='undp-typography bold margin-bottom-00'>
+        <h2
+          className='undp-typography bold margin-bottom-00'
+          style={{ color: 'var(--white)' }}
+        >
           {value} out of 100
         </h2>
         <svg width='100%' viewBox={`0 0 ${size} ${size}`}>
