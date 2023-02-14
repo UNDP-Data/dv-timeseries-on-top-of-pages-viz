@@ -10,4 +10,7 @@ export default defineConfig({
     outDir: 'build',
     cssCodeSplit: false,
   },
+  server: {
+    cors: false,
+  },
 });
