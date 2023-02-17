@@ -9,6 +9,12 @@ export default defineConfig({
   build: {
     outDir: 'build',
     cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
+      },
+    },
   },
   server: {
     cors: {

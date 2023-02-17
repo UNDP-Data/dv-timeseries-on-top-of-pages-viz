@@ -9,12 +9,8 @@ export function ValueCard(props: Props) {
       className='padding-top-00 padding-bottom-07 padding-right-09 padding-left-09'
       style={{ flexGrow: 1 }}
     >
-      <h3 className='undp-typography bold' style={{ color: 'var(--white)' }}>
-        {number}
-      </h3>
-      <p className='undp-typography' style={{ color: 'var(--white)' }}>
-        {title}
-      </p>
+      <h6 className='undp-typography'>{title}</h6>
+      <h2 className='undp-typography bold'>{number}</h2>
     </div>
   );
 }

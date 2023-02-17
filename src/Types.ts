@@ -2,7 +2,7 @@ export interface IndicatorDataType {
   indicator: string;
   yearlyData: {
     year: number;
-    value: string;
+    value: number;
   }[];
 }
 export interface CountryGroupDataType {
