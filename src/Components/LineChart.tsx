@@ -30,14 +30,14 @@ export function LineChart(props: Props) {
   }, [graphDiv]);
   return (
     <div
-      className='padding-left-09 padding-right-09 padding-top-00 padding-bottom-07 flex-div'
+      className='flex-div gap-02'
       style={{
         flexGrow: 1,
         flexDirection: 'column',
-        display: 'flex',
+        minHeight: '12.5rem',
       }}
     >
-      <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
+      <h6 className='undp-typography bold margin-bottom-00'>{graphTitle}</h6>
       <div
         style={{
           flexGrow: 1,

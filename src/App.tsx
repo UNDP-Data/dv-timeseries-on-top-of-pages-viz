@@ -20,7 +20,7 @@ function App(props: Props) {
   }, []);
   return (
     <div
-      className='undp-container padding-bottom-09'
+      className='undp-container padding-bottom-09 padding-top-09'
       style={{ backgroundColor: 'var(--gray-300)' }}
     >
       <div

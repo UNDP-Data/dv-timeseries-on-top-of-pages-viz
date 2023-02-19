@@ -15,17 +15,19 @@ export function DotPlot(props: Props) {
   const gridSize = (size - margin.left - margin.right) / 10;
   const radius = (gridSize - 6) / 2;
 
-  // function to find the greatest common divisor of two numbers
   return (
     <div
-      className='padding-left-09 padding-right-09 padding-top-00 padding-bottom-07 flex-div'
+      className='flex-div'
       style={{
         flexGrow: 1,
         flexDirection: 'column',
       }}
     >
       <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
-      <h2 className='undp-typography bold margin-bottom-00'>
+      <h2
+        className='undp-typography bold margin-bottom-00'
+        style={{ textAlign: 'center' }}
+      >
         {value} out of 100
       </h2>
       <svg

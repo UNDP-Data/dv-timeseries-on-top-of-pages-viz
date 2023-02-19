@@ -10,12 +10,14 @@ interface Props {
 function PovertyAndInequalityViz(props: Props) {
   const { data } = props;
   return (
-    <div className='max-width flex-div flex-wrap flex-hor-align-center gap-00'>
+    <div className='max-width flex-div flex-wrap flex-hor-align-center gap-07'>
       <div
+        className='flex-div'
         style={{
-          display: 'flex',
           flexDirection: 'column',
-          width: '33.33%',
+          width: 'calc(33.33% - 1.334rem)',
+          flexGrow: 1,
+          flexBasis: '20rem',
         }}
       >
         <LineChart
@@ -35,10 +37,12 @@ function PovertyAndInequalityViz(props: Props) {
         />
       </div>
       <div
+        className='flex-div'
         style={{
-          display: 'flex',
           flexDirection: 'column',
-          width: '33.33%',
+          width: 'calc(33.33% - 1.334rem)',
+          flexGrow: 1,
+          flexBasis: '20rem',
         }}
       >
         <ValueCard
@@ -52,10 +56,12 @@ function PovertyAndInequalityViz(props: Props) {
         />
       </div>
       <div
+        className='flex-div'
         style={{
-          display: 'flex',
           flexDirection: 'column',
-          width: '33.33%',
+          width: 'calc(33.33% - 1.334rem)',
+          flexGrow: 1,
+          flexBasis: '20rem',
         }}
       >
         <LineChart
