@@ -38,10 +38,10 @@ export function LineChartGraph(props: Props) {
   } = props;
   const MouseoverRectRef = useRef(null);
   const margin = {
-    top: 20,
-    bottom: 20,
-    left: 10,
-    right: 10,
+    top: 5,
+    bottom: 15,
+    left: 0,
+    right: 5,
   };
   const graphWidth = svgWidth - margin.left - margin.right;
   const graphHeight = svgHeight - margin.top - margin.bottom;

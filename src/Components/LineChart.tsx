@@ -37,7 +37,7 @@ export function LineChart(props: Props) {
         minHeight: '12.5rem',
       }}
     >
-      <h6 className='undp-typography bold margin-bottom-00'>{graphTitle}</h6>
+      <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
       <div
         style={{
           flexGrow: 1,
@@ -48,7 +48,9 @@ export function LineChart(props: Props) {
         <h2 className='undp-typography bold margin-bottom-00'>
           {mouseOverData.value}
           {suffix || ''}{' '}
-          <span style={{ opacity: '0.25' }}>({mouseOverData.year})</span>
+          <span style={{ color: 'var(--gray-500)', fontSize: '1.5rem' }}>
+            ({mouseOverData.year})
+          </span>
         </h2>
         <div style={{ flexGrow: 1, width: '100%' }} ref={graphDiv}>
           {svgWidth && svgHeight ? (

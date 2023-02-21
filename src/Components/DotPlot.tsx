@@ -2,10 +2,11 @@ interface Props {
   value: number;
   size: number;
   graphTitle: string;
+  dotColor?: string;
 }
 
 export function DotPlot(props: Props) {
-  const { value, size, graphTitle } = props;
+  const { value, size, graphTitle, dotColor } = props;
   const margin = {
     top: 0,
     bottom: 0,
@@ -17,20 +18,18 @@ export function DotPlot(props: Props) {
 
   return (
     <div
-      className='flex-div'
+      className='flex-div gap-03'
       style={{
         flexGrow: 1,
         flexDirection: 'column',
       }}
     >
-      <h2
-        className='undp-typography bold margin-bottom-00'
-        style={{ textAlign: 'center' }}
-      >
+      <p className='undp-typography margin-bottom-00'>{graphTitle}</p>
+      <h2 className='undp-typography bold margin-bottom-00'>
         {value} out of 100
       </h2>
       <svg
-        style={{ maxWidth: '15rem', margin: '0 auto' }}
+        style={{ maxWidth: '15rem', margin: '0' }}
         width='100%'
         viewBox={`0 0 ${size} ${size}`}
       >
@@ -43,11 +42,11 @@ export function DotPlot(props: Props) {
               style={{
                 fill:
                   d + 1 <= Math.round(value)
-                    ? 'var(--dark-green)'
+                    ? dotColor || 'var(--dark-green)'
                     : 'var(--white)',
                 stroke:
                   d + 1 <= Math.round(value)
-                    ? 'var(--dark-green)'
+                    ? dotColor || 'var(--dark-green)'
                     : 'var(--gray-500)',
                 strokeWidth: 1,
               }}
@@ -56,12 +55,6 @@ export function DotPlot(props: Props) {
           ))}
         </g>
       </svg>
-      <h6
-        className='undp-typography bold margin-top-03'
-        style={{ textAlign: 'center' }}
-      >
-        {graphTitle}
-      </h6>
     </div>
   );
 }
