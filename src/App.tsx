@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import { json } from 'd3-request';
 import { CountryGroupDataType } from './Types';
 import PovertyAndInequalityViz from './PovertyAndInequality';
+import EnvironmentViz from './Environment';
+import GenderViz from './Gender';
+import GovernanceViz from './Governance';
+import ResilienceViz from './Resilience';
+import EnergyViz from './Energy';
 
 interface Props {
   signatureSolution: string;
@@ -30,6 +35,16 @@ function App(props: Props) {
         {data ? (
           signatureSolution === 'Poverty and Inequality' ? (
             <PovertyAndInequalityViz data={data} />
+          ) : signatureSolution === 'Environment' ? (
+            <EnvironmentViz data={data} />
+          ) : signatureSolution === 'Gender' ? (
+            <GenderViz data={data} />
+          ) : signatureSolution === 'Governance' ? (
+            <GovernanceViz data={data} />
+          ) : signatureSolution === 'Resilience' ? (
+            <ResilienceViz data={data} />
+          ) : signatureSolution === 'Energy' ? (
+            <EnergyViz data={data} />
           ) : null
         ) : null}
       </div>

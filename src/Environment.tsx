@@ -1,13 +1,12 @@
+import UNDPColorModule from 'undp-viz-colors';
 import { LineChart } from './Components/LineChart';
 import { CountryGroupDataType } from './Types';
-import { ValueCard } from './Components/ValueCard';
-import { DotPlot } from './Components/DotPlot';
 
 interface Props {
   data: CountryGroupDataType;
 }
 
-function PovertyAndInequalityViz(props: Props) {
+function EnvironmentViz(props: Props) {
   const { data } = props;
   return (
     <div
@@ -21,44 +20,55 @@ function PovertyAndInequalityViz(props: Props) {
           width: 'calc(33.33% - 2rem)',
           flexGrow: 1,
           flexBasis: '20rem',
+          gap: 'var(--spacing-09)',
         }}
       >
+        <LineChart
+          data={
+            data.indicators[
+              data.indicators.findIndex(d => d.indicator === 'GHG emission')
+            ].yearlyData
+          }
+          lineColor='#232E3D'
+          suffix='Mt'
+          strokeWidth={2}
+          graphTitle='GHG emission'
+        />
         <LineChart
           data={
             data.indicators[
               data.indicators.findIndex(
                 d =>
                   d.indicator ===
-                  'Poverty headcount ratio at $2.15 a day (2017 PPP) (% of population)',
+                  'International migrant stock at mid-year (both sexes)',
+              )
+            ].yearlyData
+          }
+          lineColor='#232E3D'
+          strokeWidth={2}
+          graphTitle='International migrant stock at mid-year (total)'
+        />
+      </div>
+      <div
+        className='flex-div'
+        style={{
+          flexDirection: 'column',
+          width: 'calc(33.33% - 2rem)',
+          flexGrow: 1,
+          flexBasis: '20rem',
+        }}
+      >
+        <LineChart
+          data={
+            data.indicators[
+              data.indicators.findIndex(
+                d => d.indicator === 'Population, total',
               )
             ].yearlyData
           }
           strokeWidth={1}
           lineColor='#232E3D'
-          graphTitle='Poverty headcount ratio at $2.15 a day (2017 PPP) (% of population)'
-          suffix='%'
-        />
-      </div>
-      <div
-        className='flex-div'
-        style={{
-          flexDirection: 'column',
-          width: 'calc(33.33% - 2rem)',
-          flexGrow: 1,
-          flexBasis: '20rem',
-          gap: 'var(--spacing-09)',
-        }}
-      >
-        <ValueCard
-          title='people are multidimensionally poor'
-          number='1.2 Billion'
-          year={2021}
-        />
-        <DotPlot
-          graphTitle='Vulnerable persons covered by social assistance'
-          value={28.9}
-          size={200}
-          year={2021}
+          graphTitle='Population, total'
         />
       </div>
       <div
@@ -75,32 +85,29 @@ function PovertyAndInequalityViz(props: Props) {
           data={
             data.indicators[
               data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Working poverty rate (percentage of employed living below US$1.90 PPP) (%)',
+                d => d.indicator === 'Urban Population, total',
               )
             ].yearlyData
           }
-          lineColor='#232E3D'
-          suffix='%'
+          lineColor={UNDPColorModule.categoricalColors.locationColors.urban}
           strokeWidth={2}
-          graphTitle='Working poverty rate (percentage of employed living below US$1.90 PPP) (%)'
+          graphTitle='Urban Population'
         />
         <LineChart
           data={
             data.indicators[
               data.indicators.findIndex(
-                d => d.indicator === 'Inequality-adjusted HDI',
+                d => d.indicator === 'Rural Population, total',
               )
             ].yearlyData
           }
-          lineColor='#232E3D'
+          lineColor={UNDPColorModule.categoricalColors.locationColors.rural}
           strokeWidth={2}
-          graphTitle='Inequality-adjusted HDI'
+          graphTitle='Rural Population'
         />
       </div>
     </div>
   );
 }
 
-export default PovertyAndInequalityViz;
+export default EnvironmentViz;

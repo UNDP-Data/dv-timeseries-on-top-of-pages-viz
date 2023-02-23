@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { format } from 'd3-format';
 import { LineChartGraph } from './LineChartGraph';
 
 interface Props {
@@ -10,10 +11,20 @@ interface Props {
   graphTitle: string;
   strokeWidth: number;
   suffix?: string;
+  prefix?: string;
+  labelFormat?: string;
 }
 
 export function LineChart(props: Props) {
-  const { data, lineColor, graphTitle, strokeWidth, suffix } = props;
+  const {
+    data,
+    lineColor,
+    graphTitle,
+    strokeWidth,
+    suffix,
+    labelFormat,
+    prefix,
+  } = props;
   const [mouseOverData, setMouseOverData] = useState<any>(
     data[data.length - 1],
   );
@@ -27,17 +38,17 @@ export function LineChart(props: Props) {
       setSvgHeight(graphDiv.current.clientHeight);
       setSvgWidth(graphDiv.current.clientWidth);
     }
-  }, [graphDiv]);
+  }, [graphDiv?.current]);
   return (
     <div
       className='flex-div gap-02'
       style={{
         flexGrow: 1,
         flexDirection: 'column',
-        minHeight: '12.5rem',
+        minHeight: '15rem',
       }}
     >
-      <h6 className='undp-typography bold margin-bottom-03'>{graphTitle}</h6>
+      <p className='undp-typography margin-bottom-00'>{graphTitle}</p>
       <div
         style={{
           flexGrow: 1,
@@ -46,13 +57,22 @@ export function LineChart(props: Props) {
         }}
       >
         <h2 className='undp-typography bold margin-bottom-00'>
-          {mouseOverData.value}
+          {prefix || ''}{' '}
+          {Math.abs(mouseOverData.value) < 1
+            ? mouseOverData.value
+            : format(labelFormat || '.3s')(mouseOverData.value).replace(
+                'G',
+                'B',
+              )}
           {suffix || ''}{' '}
           <span style={{ color: 'var(--gray-500)', fontSize: '1.5rem' }}>
             ({mouseOverData.year})
           </span>
         </h2>
-        <div style={{ flexGrow: 1, width: '100%' }} ref={graphDiv}>
+        <div
+          style={{ flexGrow: 1, width: '100%', display: 'flex' }}
+          ref={graphDiv}
+        >
           {svgWidth && svgHeight ? (
             <LineChartGraph
               data={data}

@@ -110,11 +110,21 @@ export function LineChartGraph(props: Props) {
       .on('mouseout', mouseout);
   }, [x, data]);
   return (
-    <svg width='100%' viewBox={`0 0 ${svgWidth} ${svgHeight}`}>
+    <svg
+      width='100%'
+      style={{ alignItems: 'flex-end' }}
+      viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+    >
       <defs>
-        <linearGradient id='Gradient2' x1='0' x2='0' y1='0' y2='1'>
-          <stop stopColor='##232E3D' stopOpacity='0.1' offset='0%' />
-          <stop stopColor='##232E3D' stopOpacity='0' offset='100%' />
+        <linearGradient
+          id={`Gradient-${lineColor}`}
+          x1='0'
+          x2='0'
+          y1='0'
+          y2='1'
+        >
+          <stop stopColor={lineColor} stopOpacity='0.1' offset='0%' />
+          <stop stopColor={lineColor} stopOpacity='0' offset='100%' />
         </linearGradient>
       </defs>
       {data.length === 0 ? (
@@ -133,7 +143,7 @@ export function LineChartGraph(props: Props) {
           <path
             clipPath='url(#clip)'
             d={mainGraphArea(dataFormatted as any) as string}
-            fill='url(#Gradient2)'
+            fill={`url(#Gradient-${lineColor})`}
           />
           <g>
             {minYearFiltered === maxYearFiltered ? (
