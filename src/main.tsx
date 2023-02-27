@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import CountryVizApp from './CountryVizApp';
 
 const getEl = (embedSelector: string) => {
   if (typeof embedSelector === 'string') {
@@ -26,12 +27,39 @@ const getSS = (embedSelector: string) => {
   return undefined;
 };
 
+const getCountry = (embedSelector: string) => {
+  const el = document.querySelector(embedSelector);
+  if (!el) {
+    return undefined;
+  }
+  const elClass: string[] = el.className.split('~');
+  if (elClass[0] === 'country') return elClass[1].replaceAll('+', ' ');
+  return undefined;
+};
+
 const containerEmbed = getEl('[data-bucket-embed]');
 if (containerEmbed) {
   const rootEmbed = ReactDOM.createRoot(containerEmbed);
   rootEmbed.render(
     <React.StrictMode>
       <App signatureSolution={getSS('[data-bucket-embed]') || ''} />
+    </React.StrictMode>,
+  );
+}
+
+const containerCountryEmbed = getEl('[data-bucket-country-embed]');
+if (containerCountryEmbed) {
+  const rootEmbed = ReactDOM.createRoot(containerCountryEmbed);
+  const currentURL = window.location;
+  const countryCode =
+    currentURL.href.split('?')[0].substr(-1) === '/'
+      ? currentURL.href.split('?')[0].substr(-4).substring(0, 3)
+      : currentURL.href.split('?')[0].substr(-3);
+  rootEmbed.render(
+    <React.StrictMode>
+      <CountryVizApp
+        country={getCountry('[data-bucket-country-embed]') || countryCode}
+      />
     </React.StrictMode>,
   );
 }

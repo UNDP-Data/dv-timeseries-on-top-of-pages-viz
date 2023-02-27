@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface Props {
   number: string | number;
   title: string;
-  year: number;
+  year?: number;
 }
 
 const StatEl = styled.h3`
@@ -36,7 +36,7 @@ export function ValueCard(props: Props) {
       <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
         <StatEl className='undp-typography bold margin-bottom-03'>
           {number}
-          <YearEl> ({year})</YearEl>
+          {year ? <YearEl> ({year})</YearEl> : null}
         </StatEl>
         <p className='undp-typography large-font margin-bottom-00'>{title}</p>
       </div>
