@@ -12,7 +12,7 @@ function GenderViz(props: Props) {
   return (
     <div
       className='flex-div flex-wrap flex-hor-align-center'
-      style={{ gap: 'var(--spacing-09)' }}
+      style={{ gap: 'var(--spacing-09)', width: '100%' }}
     >
       <div
         className='flex-div'
