@@ -47,7 +47,7 @@ if (containerEmbed) {
   );
 }
 
-const containerCountryEmbed = getEl('[data-bucket-country-embed]');
+const containerCountryEmbed = getEl('[data-bucket-country-top-graphs-embed]');
 if (containerCountryEmbed) {
   const rootEmbed = ReactDOM.createRoot(containerCountryEmbed);
   const currentURL = window.location;
@@ -58,7 +58,9 @@ if (containerCountryEmbed) {
   rootEmbed.render(
     <React.StrictMode>
       <CountryVizApp
-        country={getCountry('[data-bucket-country-embed]') || countryCode}
+        country={
+          getCountry('[data-bucket-country-top-graphs-embed]') || countryCode
+        }
       />
     </React.StrictMode>,
   );

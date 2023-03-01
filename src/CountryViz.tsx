@@ -52,7 +52,7 @@ function CountryViz(props: Props) {
         }}
       >
         {data.indicators.findIndex(
-          d => d.indicator === 'GDP per capita , PPP (current international $)',
+          d => d.indicator === 'GDP per capita, PPP (current international $)',
         ) !== -1 ? (
           <LineChart
             data={
