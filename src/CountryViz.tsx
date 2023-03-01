@@ -596,6 +596,7 @@ function CountryViz(props: Props) {
             flexDirection: 'column',
             width: 'calc(33.33% - 2rem)',
             flexGrow: 1,
+            flexBasis: '20rem',
           }}
         >
           {data.indicators.findIndex(
@@ -623,6 +624,7 @@ function CountryViz(props: Props) {
             flexDirection: 'column',
             width: 'calc(33.33% - 2rem)',
             flexGrow: 1,
+            flexBasis: '20rem',
             gap: 'var(--spacing-09)',
           }}
         >
@@ -654,6 +656,7 @@ function CountryViz(props: Props) {
             flexDirection: 'column',
             width: 'calc(33.33% - 2rem)',
             flexGrow: 1,
+            flexBasis: '20rem',
             gap: 'var(--spacing-09)',
           }}
         >
