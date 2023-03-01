@@ -37,12 +37,12 @@ const getCountry = (embedSelector: string) => {
   return undefined;
 };
 
-const containerEmbed = getEl('[data-bucket-embed]');
+const containerEmbed = getEl('[data-bucket-top-graphs-embed]');
 if (containerEmbed) {
   const rootEmbed = ReactDOM.createRoot(containerEmbed);
   rootEmbed.render(
     <React.StrictMode>
-      <App signatureSolution={getSS('[data-bucket-embed]') || ''} />
+      <App signatureSolution={getSS('[data-bucket-top-graphs-embed]') || ''} />
     </React.StrictMode>,
   );
 }
