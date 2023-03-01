@@ -10,7 +10,7 @@ function EnvironmentViz(props: Props) {
   const { data } = props;
   return (
     <div
-      className='max-width flex-div flex-wrap flex-hor-align-center'
+      className='flex-div flex-wrap flex-hor-align-center'
       style={{ gap: 'var(--spacing-09)' }}
     >
       <div
