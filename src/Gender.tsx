@@ -63,21 +63,17 @@ function GenderViz(props: Props) {
           graphTitle='Gender Inequality Index (higher is better)'
         />
         <DotPlot
-          graphTitle='Literate adult female'
+          graphTitle='Literate female'
           size={200}
           value={
             data.indicators[
               data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Literacy rate, adult female (% of females ages 15 and above)',
+                d => d.indicator === 'Literacy Rate Female (%)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d =>
-                    d.indicator ===
-                    'Literacy rate, adult female (% of females ages 15 and above)',
+                  d => d.indicator === 'Literacy Rate Female (%)',
                 )
               ].yearlyData.length - 1
             ].value
@@ -85,16 +81,12 @@ function GenderViz(props: Props) {
           year={
             data.indicators[
               data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Literacy rate, adult female (% of females ages 15 and above)',
+                d => d.indicator === 'Literacy Rate Female (%)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d =>
-                    d.indicator ===
-                    'Literacy rate, adult female (% of females ages 15 and above)',
+                  d => d.indicator === 'Literacy Rate Female (%)',
                 )
               ].yearlyData.length - 1
             ].year
@@ -128,21 +120,17 @@ function GenderViz(props: Props) {
           suffix='%'
         />
         <DotPlot
-          graphTitle='Literate adult male'
+          graphTitle='Literate male'
           size={200}
           value={
             data.indicators[
               data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Literacy rate, adult male (% of males ages 15 and above)',
+                d => d.indicator === 'Literacy Rate Male (%)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d =>
-                    d.indicator ===
-                    'Literacy rate, adult male (% of males ages 15 and above)',
+                  d => d.indicator === 'Literacy Rate Male (%)',
                 )
               ].yearlyData.length - 1
             ].value
@@ -150,16 +138,12 @@ function GenderViz(props: Props) {
           year={
             data.indicators[
               data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Literacy rate, adult male (% of males ages 15 and above)',
+                d => d.indicator === 'Literacy Rate Male (%)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d =>
-                    d.indicator ===
-                    'Literacy rate, adult male (% of males ages 15 and above)',
+                  d => d.indicator === 'Literacy Rate Male (%)',
                 )
               ].yearlyData.length - 1
             ].year

@@ -1,4 +1,5 @@
 import UNDPColorModule from 'undp-viz-colors';
+import { DotPlot } from './Components/DotPlot';
 import { LineChart } from './Components/LineChart';
 import { CountryGroupDataType } from './Types';
 
@@ -28,36 +29,14 @@ function EnergyViz(props: Props) {
               data.indicators.findIndex(
                 d =>
                   d.indicator ===
-                  'Renewable energy consumption (% of total final energy consumption)',
+                  'Primary energy consumption per capita, measured in kilowatt-hours',
               )
             ].yearlyData
           }
           strokeWidth={1}
           lineColor='#232E3D'
-          graphTitle='Renewable energy consumption (% of total final energy consumption)'
-          suffix='%'
-        />
-      </div>
-      <div
-        className='flex-div'
-        style={{
-          flexDirection: 'column',
-          width: 'calc(33.33% - 2rem)',
-          flexGrow: 1,
-          flexBasis: '20rem',
-        }}
-      >
-        <LineChart
-          data={
-            data.indicators[
-              data.indicators.findIndex(
-                d => d.indicator === 'Population, total',
-              )
-            ].yearlyData
-          }
-          strokeWidth={1}
-          lineColor='#232E3D'
-          graphTitle='Population, total'
+          graphTitle='Primary energy consumption per capita, measured in kilowatt-hours'
+          suffix='KwH'
         />
       </div>
       <div
@@ -70,29 +49,164 @@ function EnergyViz(props: Props) {
           gap: 'var(--spacing-09)',
         }}
       >
-        <LineChart
-          data={
+        <DotPlot
+          graphTitle='People with access to electricity'
+          size={200}
+          value={
             data.indicators[
               data.indicators.findIndex(
-                d => d.indicator === 'Urban Population, total',
+                d => d.indicator === 'Access to electricity (% of population)',
               )
-            ].yearlyData
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator === 'Access to electricity (% of population)',
+                )
+              ].yearlyData.length - 1
+            ].value
           }
-          lineColor={UNDPColorModule.categoricalColors.locationColors.urban}
-          strokeWidth={2}
-          graphTitle='Urban Population'
+          year={
+            data.indicators[
+              data.indicators.findIndex(
+                d => d.indicator === 'Access to electricity (% of population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator === 'Access to electricity (% of population)',
+                )
+              ].yearlyData.length - 1
+            ].year
+          }
         />
-        <LineChart
-          data={
+        <DotPlot
+          graphTitle='People with access to clean fuels and technologies for cooking'
+          size={200}
+          value={
             data.indicators[
               data.indicators.findIndex(
-                d => d.indicator === 'Rural Population, total',
+                d =>
+                  d.indicator ===
+                  'Access to clean fuels and technologies for cooking  (% of population)',
               )
-            ].yearlyData
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to clean fuels and technologies for cooking  (% of population)',
+                )
+              ].yearlyData.length - 1
+            ].value
           }
-          lineColor={UNDPColorModule.categoricalColors.locationColors.rural}
-          strokeWidth={2}
-          graphTitle='Rural Population'
+          year={
+            data.indicators[
+              data.indicators.findIndex(
+                d =>
+                  d.indicator ===
+                  'Access to clean fuels and technologies for cooking  (% of population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to clean fuels and technologies for cooking  (% of population)',
+                )
+              ].yearlyData.length - 1
+            ].year
+          }
+        />
+      </div>
+      <div
+        className='flex-div'
+        style={{
+          flexDirection: 'column',
+          width: 'calc(33.33% - 2rem)',
+          flexGrow: 1,
+          flexBasis: '20rem',
+          gap: 'var(--spacing-09)',
+        }}
+      >
+        <DotPlot
+          graphTitle='Urban people with access to electricity'
+          size={200}
+          value={
+            data.indicators[
+              data.indicators.findIndex(
+                d =>
+                  d.indicator ===
+                  'Access to electricity, urban (% of urban population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to electricity, urban (% of urban population)',
+                )
+              ].yearlyData.length - 1
+            ].value
+          }
+          year={
+            data.indicators[
+              data.indicators.findIndex(
+                d =>
+                  d.indicator ===
+                  'Access to electricity, urban (% of urban population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to electricity, urban (% of urban population)',
+                )
+              ].yearlyData.length - 1
+            ].year
+          }
+          dotColor={UNDPColorModule.categoricalColors.locationColors.urban}
+        />
+        <DotPlot
+          graphTitle='Rural people with access to electricity'
+          size={200}
+          value={
+            data.indicators[
+              data.indicators.findIndex(
+                d =>
+                  d.indicator ===
+                  'Access to electricity, rural (% of rural population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to electricity, rural (% of rural population)',
+                )
+              ].yearlyData.length - 1
+            ].value
+          }
+          year={
+            data.indicators[
+              data.indicators.findIndex(
+                d =>
+                  d.indicator ===
+                  'Access to electricity, rural (% of rural population)',
+              )
+            ].yearlyData[
+              data.indicators[
+                data.indicators.findIndex(
+                  d =>
+                    d.indicator ===
+                    'Access to electricity, rural (% of rural population)',
+                )
+              ].yearlyData.length - 1
+            ].year
+          }
+          dotColor={UNDPColorModule.categoricalColors.locationColors.rural}
         />
       </div>
     </div>

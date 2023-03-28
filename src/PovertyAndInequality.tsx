@@ -7,6 +7,65 @@ interface Props {
   data: CountryGroupDataType;
 }
 
+const WORKING_POVERTY_DATA = {
+  indicator:
+    'Working poverty rate (percentage of employed living below US$1.90 PPP) (%)',
+  yearlyData: [
+    {
+      year: 2010,
+      value: 13.72,
+    },
+    {
+      year: 2011,
+      value: 11.8,
+    },
+    {
+      year: 2012,
+      value: 10.76,
+    },
+    {
+      year: 2013,
+      value: 8.85,
+    },
+    {
+      year: 2014,
+      value: 8.23,
+    },
+    {
+      year: 2015,
+      value: 7.77,
+    },
+    {
+      year: 2016,
+      value: 7.37,
+    },
+    {
+      year: 2017,
+      value: 7.03,
+    },
+    {
+      year: 2018,
+      value: 6.77,
+    },
+    {
+      year: 2019,
+      value: 6.68,
+    },
+    {
+      year: 2020,
+      value: 7.19,
+    },
+    {
+      year: 2021,
+      value: 6.72,
+    },
+    {
+      year: 2022,
+      value: 6.38,
+    },
+  ],
+};
+
 function PovertyAndInequalityViz(props: Props) {
   const { data } = props;
   return (
@@ -72,15 +131,7 @@ function PovertyAndInequalityViz(props: Props) {
         }}
       >
         <LineChart
-          data={
-            data.indicators[
-              data.indicators.findIndex(
-                d =>
-                  d.indicator ===
-                  'Working poverty rate (percentage of employed living below US$1.90 PPP) (%)',
-              )
-            ].yearlyData
-          }
+          data={WORKING_POVERTY_DATA.yearlyData}
           lineColor='#232E3D'
           suffix='%'
           strokeWidth={2}

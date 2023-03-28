@@ -17,7 +17,7 @@ function App(props: Props) {
   const [data, setData] = useState<CountryGroupDataType | undefined>(undefined);
   useEffect(() => {
     json(
-      'https://raw.githubusercontent.com/UNDP-Data/dv-signature_solutions_aggreated_timeseries-viz/master/public/data.json',
+      'https://raw.githubusercontent.com/UNDP-Data/Access-All-Data-Data-Repo/main/regionData/WLD.json',
       (err: any, d: CountryGroupDataType) => {
         setData(d);
       },

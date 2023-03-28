@@ -72,7 +72,7 @@ function GovernanceViz(props: Props) {
         }}
       >
         <ValueCard
-          title='CPIA public sector management and institutions cluster average (1=low to 6=high)'
+          title='CPIA Public sector management and institutions cluster average (1=low to 6=high)'
           number={
             data.indicators[
               data.indicators.findIndex(
@@ -113,12 +113,12 @@ function GovernanceViz(props: Props) {
           number={
             data.indicators[
               data.indicators.findIndex(
-                d => d.indicator === 'Human Development Index (HDI)',
+                d => d.indicator === 'Human development index (HDI)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d => d.indicator === 'Human Development Index (HDI)',
+                  d => d.indicator === 'Human development index (HDI)',
                 )
               ].yearlyData.length - 1
             ].value
@@ -126,12 +126,12 @@ function GovernanceViz(props: Props) {
           year={
             data.indicators[
               data.indicators.findIndex(
-                d => d.indicator === 'Human Development Index (HDI)',
+                d => d.indicator === 'Human development index (HDI)',
               )
             ].yearlyData[
               data.indicators[
                 data.indicators.findIndex(
-                  d => d.indicator === 'Human Development Index (HDI)',
+                  d => d.indicator === 'Human development index (HDI)',
                 )
               ].yearlyData.length - 1
             ].year
