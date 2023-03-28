@@ -36,7 +36,8 @@ function EnergyViz(props: Props) {
           strokeWidth={1}
           lineColor='#232E3D'
           graphTitle='Primary energy consumption per capita, measured in kilowatt-hours'
-          suffix='KwH'
+          removeSuffix
+          suffix='mWh'
         />
       </div>
       <div

@@ -14,6 +14,7 @@ interface Props {
   suffix?: string;
   prefix?: string;
   labelFormat?: string;
+  removeSuffix?: boolean;
 }
 
 const StatEl = styled.h3`
@@ -47,6 +48,7 @@ export function LineChart(props: Props) {
     suffix,
     labelFormat,
     prefix,
+    removeSuffix,
   } = props;
   const [mouseOverData, setMouseOverData] = useState<any>(
     data[data.length - 1],
@@ -83,7 +85,15 @@ export function LineChart(props: Props) {
           <>
             <h2 className='undp-typography bold margin-bottom-00'>
               {prefix || ''}{' '}
-              {Math.abs(mouseOverData.value) < 1
+              {removeSuffix
+                ? (Math.abs(mouseOverData.value) < 1
+                    ? mouseOverData.value
+                    : format(labelFormat || '.3s')(mouseOverData.value).replace(
+                        'G',
+                        'B',
+                      )
+                  ).replace('k', '')
+                : Math.abs(mouseOverData.value) < 1
                 ? mouseOverData.value
                 : format(labelFormat || '.3s')(mouseOverData.value).replace(
                     'G',
