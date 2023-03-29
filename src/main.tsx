@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import CountryVizApp from './CountryVizApp';
+import RegionVizApp from './RegionalVizApp';
 
 const getEl = (embedSelector: string) => {
   if (typeof embedSelector === 'string') {
@@ -37,6 +38,16 @@ const getCountry = (embedSelector: string) => {
   return undefined;
 };
 
+const getRegion = (embedSelector: string) => {
+  const el = document.querySelector(embedSelector);
+  if (!el) {
+    return undefined;
+  }
+  const elClass: string[] = el.className.split('~');
+  if (elClass[0] === 'region') return elClass[1].replaceAll('+', ' ');
+  return undefined;
+};
+
 const containerEmbed = getEl('[data-bucket-top-graphs-embed]');
 if (containerEmbed) {
   const rootEmbed = ReactDOM.createRoot(containerEmbed);
@@ -61,6 +72,18 @@ if (containerCountryEmbed) {
         country={
           getCountry('[data-bucket-country-top-graphs-embed]') || countryCode
         }
+      />
+    </React.StrictMode>,
+  );
+}
+
+const containerRegionalEmbed = getEl('[data-bucket-region-top-graphs-embed]');
+if (containerRegionalEmbed) {
+  const rootEmbed = ReactDOM.createRoot(containerRegionalEmbed);
+  rootEmbed.render(
+    <React.StrictMode>
+      <RegionVizApp
+        region={getRegion('[data-bucket-region-top-graphs-embed]')}
       />
     </React.StrictMode>,
   );
