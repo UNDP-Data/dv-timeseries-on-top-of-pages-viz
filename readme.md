@@ -1,8 +1,52 @@
 # Project Title
-_Project description_
+This project is for the top line visualization on the different pages (region pages, country pages and signature solution pages) of Data Futures Platform.
 
 __Link for the visualization__
-_Link where the visualization is deployed_
+[https://undp-ss-viz.netlify.app/](https://undp-ss-viz.netlify.app/)
+
+__Images for the visualization__
+
+* Country Visualization (this is an example for India)
+![Country Viz](readmeImgs/CountryViz.png)
+* Region Visualization (this is an example for South Asia)
+![Region Viz](readmeImgs/RegionViz.png)
+* Signature Solution Visualization (this is example for Energy)
+![Signature Solution Viz](readmeImgs/SSViz.png)
+
+__Steps to Integrating the Visualization in the Data Future Platform or Any Other Page__
+_Only editor and admins of Data Futures Platform are allowed to edit pages and embed the visualization in any page._
+
+Regional visualization will be rendered within the following div on a static page:
+```
+<div data-bucket-region-top-graphs-embed class="region~<Use Region Code Here>"></div>
+```
+
+Country visualization will be rendered within the following div on a static page:
+```
+<div data-bucket-country-top-graphs-embed class="country~<Use Country Alpha-3 Code Here>"></div>
+```
+_If the class is not mentioned then the code uses the last 3 character of the URL as the country code_
+
+Signature Solution visualization will be rendered within the following div on a static page:
+```
+<div data-bucket-top-graphs-embed class="signatureSolution~<Use Signature Solutions Here>"></div>
+```
+_Replace ` ` with a `+`_
+Available values for Signature solutions in the class element:
+* Poverty+and+Inequality
+* Environment
+* Gender
+* Energy
+* Resilience
+* Governance
+
+Apart from the mentioned `div` above the following `script` and `link` needs to be added to the `head` or in the embed code
+```
+<script defer src="<Link to the Visualization Mentioned Above>/static/js/main.js"></script>
+<link rel="stylesheet" href="https://undp-data.github.io/stylesheets-for-viz/style/mainStyleSheet.css" />
+<link rel="stylesheet" href="https://undp-data.github.io/stylesheets-for-viz/style/StyleForGraphingInterface.css" />
+<link rel="stylesheet" href="https://undp-data.github.io/stylesheets-for-viz/style/StyleForGraph.css" />
+```
 
 __Pages Where the Visualization is Used__
 The visualization are the top line visualization on the gray background on the following pages
