@@ -1,5 +1,5 @@
-# Project Title
-###### This project is for the top line visualization on the different pages (region pages, country pages and signature solution pages) of Data Futures Platform.
+# Time Series Visualization on the Top of Different Pages
+#### This project is for the top line visualization on the different pages (region pages, country pages and signature solution pages) of Data Futures Platform.
 
 ## Table of Contents
 * [Link for the visualization](#section-01)
@@ -49,7 +49,7 @@ Available values of region code in the class element:
 * AS (for Arab States)
 * EAP (for East Asia and Pacific)
 * ECA (for Europe and Central Asia)
-* LAC (Fot Latin and Central America)
+* LAC (for Latin America and the Caribbean)
 * SA (for South Asia)
 * SSA (for Sub Saharan Africa)
 ___
