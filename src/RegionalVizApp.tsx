@@ -20,7 +20,7 @@ function RegionVizApp(props: Props) {
   }, []);
   return (
     <div
-      className='undp-container padding-bottom-09 padding-top-11'
+      className='undp-container padding-bottom-09 padding-top-00'
       style={{ backgroundColor: 'var(--gray-300)' }}
     >
       <div

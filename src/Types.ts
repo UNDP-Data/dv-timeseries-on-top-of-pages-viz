@@ -18,3 +18,8 @@ export interface CountryGroupDataType {
   'Income group': string;
   indicators: IndicatorDataType[];
 }
+
+export interface SubRegionsDataType {
+  key: string;
+  region: string;
+}

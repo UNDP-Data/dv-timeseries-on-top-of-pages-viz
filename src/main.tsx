@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import CountryVizApp from './CountryVizApp';
 import RegionVizApp from './RegionalVizApp';
+import RegionVizAppWithTabs from './RegionalVizAppWithTabs';
 
 const getEl = (embedSelector: string) => {
   if (typeof embedSelector === 'string') {
@@ -82,9 +83,24 @@ if (containerRegionalEmbed) {
   const rootEmbed = ReactDOM.createRoot(containerRegionalEmbed);
   rootEmbed.render(
     <React.StrictMode>
-      <RegionVizApp
-        region={getRegion('[data-bucket-region-top-graphs-embed]')}
-      />
+      {getRegion('[data-bucket-region-top-graphs-embed]') === 'AP' ? (
+        <RegionVizAppWithTabs
+          subRegions={[
+            {
+              key: 'SA',
+              region: 'South Asia',
+            },
+            {
+              key: 'EAP',
+              region: 'East Asia and Pacific',
+            },
+          ]}
+        />
+      ) : (
+        <RegionVizApp
+          region={getRegion('[data-bucket-region-top-graphs-embed]')}
+        />
+      )}
     </React.StrictMode>,
   );
 }
